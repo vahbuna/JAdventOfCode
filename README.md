@@ -11,6 +11,8 @@
 Rank is your position on that leaderboard: 1 means you were the first person to get that star, 2 means the second, 100 means the 100th, etc.
 Score is the number of points you got for that rank: 100 for 1st, 99 for 2nd, ..., 1 for 100th, and 0 otherwise.
 
+**<span style="color:red">Because of an outage during the day 1 puzzle unlock, day 1 is worth no points.</span>**
+
       --------Part 1--------   --------Part 2--------
 Day|      Time|  Rank| Score|      Time|  Rank| Score
 ---|---|---|---|---|---|---
@@ -30,7 +32,7 @@ Day|      Time|  Rank| Score|      Time|  Rank| Score
   7|  08:50:49|  6258|     0|  10:41:48|  4108|     0
   6|  05:52:35|  5245|     0|  05:55:45|  4981|     0
   5|  01:45:59|  2875|     0|  01:56:18|  2828|     0
-  4|  05:55:56|  5756|     0|  06:03:29|  5057|     0
-  3|      >24h| 11908|     0|      >24h|  8625|     0
-  2|  19:06:06| 13988|     0|  19:18:23| 12119|     0
+  4|**00:10:30**|**1566**|**0**|**00:22:08**|**546**|**0**
+  3|  02:27:51| 15024|     0|  02:44:21| 14545|     0
+  2|  00:18:49|  4166|     0|  00:25:13|  3853|     0
   1|  00:48:37|  5414|     0|  01:02:12|  5468|     0

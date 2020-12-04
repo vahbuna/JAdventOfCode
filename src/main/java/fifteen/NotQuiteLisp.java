@@ -4,7 +4,7 @@ package fifteen;
 public final class NotQuiteLisp {
 
     private NotQuiteLisp() {
-        throw new java.lang.UnsupportedOperationException("This is a utility class and cannot be instantiated");
+        throw new java.lang.UnsupportedOperationException("This is class cannot be instantiated");
     }
 
     /** Problem description: https://adventofcode.com/2015/day/1 */
