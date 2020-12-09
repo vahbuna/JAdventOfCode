@@ -18,8 +18,7 @@ public class ReportRepair {
      * https://adventofcode.com/2020/day/1.
      * This fails if the input has only one 1010.
      */
-    public int twoSum2020() {
-        final int total = 2020;
+    public int twoSum(final int total) {
         for (Integer candidate: expenses) {
             int conjugate = total - candidate;
             if (expenses.contains(conjugate)) {
