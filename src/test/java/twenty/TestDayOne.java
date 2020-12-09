@@ -36,6 +36,6 @@ class TestDayOne {
     void partTwo() throws IOException {
         String input = Thread.currentThread().getContextClassLoader().getResource("2020day1input.txt").getFile();
         ReportRepair report = new ReportRepair(InputUtil.getAllLinesFromFile(input));
-        assertThat(report.threeSum2020()).isEqualTo(955584);
+        assertThat(report.threeSum2020()).isEqualTo(287503934);
     }
 }
