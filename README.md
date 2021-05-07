@@ -1,5 +1,7 @@
 # Advent Of Code in Java
 
+![status](https://github.com/vahbuna/JAdventOfCode/workflows/Java%20CI%20with%20Maven/badge.svg)
+
 ## 2015
 ## 2016
 ## 2017

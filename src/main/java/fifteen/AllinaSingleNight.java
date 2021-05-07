@@ -66,13 +66,15 @@ public class AllinaSingleNight {
         });
     }
 
+    /** https://adventofcode.com/2015/day/9 */
     public double shortestRoute() {
         DoubleBinaryOperator minDist = Math::min;
-        return Algorithm.bellmanHeldKarpTravellingSalesman(distanceGraph, minDist, Double.POSITIVE_INFINITY);
+        return Algorithm.bellmanHeldKarpTravellingSalesman(distanceGraph, minDist, Double.POSITIVE_INFINITY, false);
     }
 
+    /** https://adventofcode.com/2015/day/9#part2 */
     public double longestDistance() {
         DoubleBinaryOperator minDist = Math::max;
-        return Algorithm.bellmanHeldKarpTravellingSalesman(distanceGraph, minDist, Double.NEGATIVE_INFINITY);
+        return Algorithm.bellmanHeldKarpTravellingSalesman(distanceGraph, minDist, Double.NEGATIVE_INFINITY, false);
     }
 }

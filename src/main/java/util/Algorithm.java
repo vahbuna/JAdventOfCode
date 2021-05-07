@@ -1,5 +1,6 @@
 package util;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -16,17 +17,17 @@ public class Algorithm {
     }
 
     public static double bellmanHeldKarpTravellingSalesman(final double[][] graph, DoubleBinaryOperator comp,
-                                                           final double reference) {
+                                                           final double reference, final boolean isCircuit) {
         double distance = reference;
         for (int start = 0; start < graph.length; start++) {
-            distance = comp.applyAsDouble(distance, findOptimalPath(graph, start, comp, reference));
+            distance = comp.applyAsDouble(distance, findOptimalPath(graph, start, comp, reference, isCircuit));
         }
         return distance;
     }
 
     /** https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm#Pseudocode[5] */
     private static double findOptimalPath(final double[][] graph, int start, DoubleBinaryOperator comp,
-                                          final double reference) {
+                                          final double reference, final boolean isCircuit) {
         Map<TspRoute, Double> costs = new HashMap<>();
         List<Integer> nodes = IntStream.range(0, graph.length).boxed().collect(Collectors.toList());
         nodes.remove(start);
@@ -57,6 +58,20 @@ public class Algorithm {
                 .mapToDouble(Map.Entry::getValue)
                 .boxed()
                 .collect(Collectors.toList());
+
+        if (isCircuit) {
+            Map<TspRoute, Double> circuitCosts = new HashMap<>();
+            for(Map.Entry<TspRoute, Double>cost: costs.entrySet()) {
+                if (cost.getKey().nodeSet.size() == nodes.size()) {
+                    Set<Integer> newSet = new HashSet<>(cost.getKey().nodeSet);
+                    newSet.add(start);
+                    double minCost = graph[start][cost.getKey().nodeK] + cost.getValue();
+                    circuitCosts.put(new TspRoute(newSet, start), minCost);
+                }
+            }
+            routeCosts = new ArrayList<>(circuitCosts.values());
+        }
+
         double answer = Collections.max(routeCosts);
         if (Double.compare(reference, Double.POSITIVE_INFINITY) == 0) {
             answer = Collections.min(routeCosts);
