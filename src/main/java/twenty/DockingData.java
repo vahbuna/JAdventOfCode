@@ -1,5 +1,7 @@
 package twenty;
 
+import static util.Functions.padToN;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,14 +53,6 @@ public class DockingData {
         }
         // sum of all values left in memory after the initialization program completes
         return memoryMap.values().stream().mapToLong(i -> i).sum();
-    }
-
-    private String padToN(String binary, int n) {
-        StringBuilder sb = new StringBuilder();
-        int padding = n - binary.length();
-        IntStream.range(0, padding).forEach(i -> sb.append("0"));
-        sb.append(binary);
-        return sb.toString();
     }
 
     /**
